@@ -1,0 +1,519 @@
+import matplotlib.pyplot as plt 
+	import numpy as np
+	x = np.linspace(0, 2, 100)
+	
+
+	plt.plot(x, x, label='linear')
+	plt.plot(x, x**2, label='quadratic')
+	plt.plot(x, x**3, label='cubic')
+	
+
+	plt.xlabel('x label')
+	plt.ylabel('y label')
+	
+
+	plt.title("Simple Plot")
+	
+
+	plt.legend()
+	
+
+	plt.show()
+	x = np.arange(0, 10, 0.2)
+	y = np.sin(x)
+	fig, ax = plt.subplots()
+	ax.plot(x, y)
+	plt.show()
+	plt.plot([1, 2, 3, 4])
+	plt.ylabel('some numbers')
+	plt.show()
+	plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
+	plt.show()
+	plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
+	plt.axis([0, 6, 0, 20])
+	plt.show()
+	t = np.arange(0., 5., 0.2)
+	
+
+	# red dashes, blue squares and green triangles
+	plt.plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+	plt.show()
+	data = {'a': np.arange(50),
+	        'c': np.random.randint(0, 50, 50),
+	        'd': np.random.randn(50)}
+	data['b'] = data['a'] + 10 * np.random.randn(50)
+	data['d'] = np.abs(data['d']) * 100
+	
+
+	plt.scatter('a', 'b', c='c', s='d', data=data)
+	plt.xlabel('entry a')
+	plt.ylabel('entry b')
+	plt.show()
+	names = ['group_a', 'group_b', 'group_c']
+	values = [1, 10, 100]
+	
+
+	plt.figure(figsize=(9, 3))
+	
+
+	plt.subplot(131)
+	plt.bar(names, values)
+	plt.subplot(132)
+	plt.scatter(names, values)
+	plt.subplot(133)
+	plt.plot(names, values)
+	plt.suptitle('Categorical Plotting')
+	plt.show()
+	mu, sigma = 100, 15
+	x = mu + sigma * np.random.randn(10000)
+	
+
+	# the histogram of the data
+	n, bins, patches = plt.hist(x, 50, density=1, facecolor='g', alpha=0.75)
+	
+
+	
+
+	plt.xlabel('Smarts')
+	plt.ylabel('Probability')
+	plt.title('Histogram of IQ')
+	plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+	plt.axis([40, 160, 0, 0.03])
+	plt.grid(True)
+	plt.show()
+	np.random.seed(19680801)
+	
+
+	# example data
+	mu = 100  # mean of distribution
+	sigma = 15  # standard deviation of distribution
+	x = mu + sigma * np.random.randn(437)
+	
+
+	num_bins = 50
+	
+
+	fig, ax = plt.subplots()
+	
+
+	# the histogram of the data
+	n, bins, patches = ax.hist(x, num_bins, density=1)
+	
+
+	# add a 'best fit' line
+	y = ((1 / (np.sqrt(2 * np.pi) * sigma)) *
+	     np.exp(-0.5 * (1 / sigma * (bins - mu))**2))
+	ax.plot(bins, y, '--')
+	ax.set_xlabel('Smarts')
+	ax.set_ylabel('Probability density')
+	ax.set_title(r'Histogram of IQ: $\mu=100$, $\sigma=15$')
+	
+
+	# Tweak spacing to prevent clipping of ylabel
+	fig.tight_layout()
+	plt.show()
+	labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+	sizes = [15, 30, 45, 10]
+	explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+	
+
+	fig1, ax1 = plt.subplots()
+	ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+	        shadow=True, startangle=90)
+	ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+	
+
+	plt.show()
+
+NUMPY:
+import numpy as np
+	
+
+	arr1=np.array([1,2,3,4,5,6])
+	arr2=np.array([[1,2,3],[4,5,6],[7,8,9]])
+	print(arr1)
+	print(arr2)
+	print(arr1.ndim)
+	print(arr2.ndim)
+	print(arr1.dtype)
+	print(arr1.size)
+	print(arr1.shape)
+	print(arr2.shape)
+	print(arr1.itemsize)
+	arr3=np.array([[1,2,3],[4,5,6]])
+	print(arr3.shape)
+	arr4=np.zeros(5)
+	print(arr4)
+	arr5=np.zeros((2,2))
+	print(arr5)
+	arr6=np.ones(3)
+	print(arr6)
+	arr7=np.eye(3)
+	print(arr7)
+	arr8=np.random.rand(4)
+	print(arr8)
+	arr9=np.random.rand(3,3)
+	print(arr9)
+	arr10=np.random.randint(10,211,6)
+	print(arr10)
+	arr11=np.full([3,4],0.11)
+	print(arr11)
+	arr12=np.arange(0,30,5)
+	print(arr12)
+	arr13=np.arange(1,10)
+	print(arr13)
+	arr14=np.arange(1,10).reshape(3,3)
+	print(arr14)
+	arr15=np.linspace(1,3,10)
+	print(arr15)
+	arr16=arr13.reshape(3,3)
+	print(arr16)
+	arr17=np.array([1,2,3,4,5,6,7])
+	print(arr17[5])
+	print(arr17[1:3])
+	print(arr17[-1:3])
+	print(arr17.max())
+	print(arr17.min())
+	print(arr17.argmax())
+	print(arr17.argmin())
+	print(arr17.sum())
+	print(arr2.sum(axis=0))
+	print(arr2.sum(axis=1))
+	print(arr2.cumsum(axis=0))
+	print(arr2.cumsum(axis=1))
+	print(arr2[1:-1,1:-1])
+PANDAS:
+import numpy as np
+	import pandas as pd
+	arr=np.array([1,2,3,4,np.nan,6,7])
+	print(arr)
+	s=pd.Series(arr)
+	print(s)
+	print('-'*30)
+	dates=pd.date_range(start='20191202',periods=5)
+	print(dates)
+	print('-'*30)
+	datesDF=pd.DataFrame(np.random.randn(5,5),index=dates,columns=list('ABCDE'))
+	print(datesDF)
+	print('-'*30)
+	dict1={
+	       'Name':['A',’B','J','T','An'],
+	       'Age':[21,20,21,21,21],
+	       'Gender':['Male','Male','Female','Male','Male'],
+	       'Job':['Student','Student','Student','Student','Student']
+	       }
+	df2=pd.DataFrame(dict1,index=list('ABCDE'))
+	print(df2)
+	print('-'*30)
+	print(df2.dtypes)
+	print('-'*30)
+	print(df2.head(2))
+	print('-'*30)
+	print(df2.tail(2))
+	print('-'*30)
+	print(df2.index)
+	print(df2.columns)
+	print(datesDF.describe())
+	print(df2.T)
+	print(df2['Name'])
+	print(df2.loc[:, ['Name', 'Job']])
+	print(df2.iloc[3])
+	s1 = pd.Series(np.random.randint(0, 7, size=10))
+	print(s1)
+	s2 = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan, 'CABA', 'dog', 'cat'])
+	print(s2.str.lower())
+BASICS:
+cars = ['Honda', 'Hyundai', 'Maruti Suzuki', 'Mahendra']
+	print('This is the list of cars \n', cars)
+	
+
+	#Python List Operations
+	
+
+	cars.append('Volkswagon') #Appending Elements in the list
+	print(cars)
+	
+
+	len(cars) #Length of a list
+	
+
+	print(cars[0]) #Printing Specific Element From THe List
+	
+
+	cars.remove('Volkswagon') #Removing Element From List
+	print(cars)
+	
+
+	cars.pop() #List Pop
+	
+
+	print(cars[1:3]) #List Slicing
+	
+
+	# vowels list
+	vowels = ['a', 'e', 'i', 'o', 'i', 'u']
+	
+
+	# element 'e' is searched
+	index = vowels.index('e')
+	
+
+	# index of 'e' is printed
+	print('The index of e:', index)
+	
+
+	# element 'i' is searched
+	index = vowels.index('i')
+	
+
+	# only the first index of the element is printed
+	print('The index of i:', index)
+	
+
+	#------------------------------------------------------------------------------------------------
+	
+
+	
+
+	#Sets
+	a={1,3,43,37}
+	b={67,34,77,90}
+	#Printing the Sets
+	print(a,b)
+	
+
+	#Union
+	a|b
+	
+
+	#Intersection
+	a&b
+	
+
+	#Difference
+	a-b
+	
+
+	#Symmetric Difference
+	a^b
+	
+
+	#Comparison Operators
+	print(a==b) #Operator ==
+	print(a!=b) #Operator !=
+	print(a>b) #Operator >
+	print(a<b) #Operator <
+	print(a>=b) #Operator >=
+	print(a<=b) #Operator <=
+	
+
+	#Logical Operators
+	print (a and b) #AND Operator
+	print (a or b) #OR Operator
+	print (not(a and b)) #NOT Operator
+	
+
+	x=90
+	y=10
+	#Arithmetic Operations
+	print(x+y) #Addtion
+	print(x-y) #Subtraction
+	print(x*y) #Multiplication
+	print(x/y) #Division
+	print(x%y) #Modulous
+	print(x**y) #Exponent
+	
+
+	#Comparison Operators
+	print(x==y) #Operator ==
+	print(x!=y) #Operator !=
+	print(x>y) #Operator >
+	print(x<y) #Operator <
+	print(x>=y) #Operator >=
+	print(x<=y) #Operator <=
+	
+
+	#Assignment Operators
+	z=x+y
+	print(z) #Operator =
+	z+=x
+	print(z) #Add AND
+	z-=y
+	print(z) #Subtract AND
+	z*=x
+	print(z) #Multiply AND
+	z/=y 
+	print(z) #Divide AND
+	
+
+	#Logical Operators
+	print (x and y) #AND Operator
+	print (x or y) #OR Operator
+	print (not(x and y)) #NOT Operator
+	
+
+	#..................................................
+	
+
+	#tuples
+	
+
+	#empty tupple
+	empty=()
+	print(empty)
+	
+
+	#non empty set
+	tup='python','anaconda'
+	print(tup)
+	
+
+	#concatenation
+	tup_1=(0,1,2,3)
+	print(tup+tup_1)
+	
+
+	#nested tupples
+	tup_2=('btech','HM','law','design')
+	tup_3=(tup,tup_1,tup_2)
+	print(tup_3)
+	
+
+	#repetition
+	tup_4=('python',)*4
+	print(tup_4)
+	
+
+	#slicing
+	tup_5=(0,12,43,54,756,'hello','wolrd')
+	print(tup_5)
+	print(tup_5[1:])
+	print(tup_5[0:4])
+	print(tup_5[:-1])
+	
+
+	#indexing
+	tup_6 = (1, 3, 7, 8, 7, 5, 4, 6, 8, 5)
+	
+
+	print(tup_6.index(7))
+	print(tup_6.index(6))
+	
+
+	
+
+	
+
+	#length
+	print(len(tup_6))
+	print(len(tup_5))
+	print(len(tup_4))
+	print(len(tup_3))
+	print(len(tup_2))
+	print(len(tup))
+	
+
+	
+
+	
+
+	#conversion list to tupple
+	list=[0,12,23,34,54]
+	print(tuple(list))
+	list_1=['python','java','toc']
+	print(tuple(list_1))
+	
+
+	#adding element
+	tup_7= (1, 2, 3, 4, 5)
+	tup_7=tup_7+ (76,)
+	print(tup_7)
+	
+
+	#deleting a tupple
+	tup_7= (1, 2, 3, 4, 5)
+	del tup_7
+	
+
+	
+
+	#maximum and minimum
+	tup_8=(1,32,43,54,65,76)
+	print(max(tup_8))
+	print(min(tup_8))
+	2 in tup_8
+	54 in tup_8
+	
+
+	#------------------------------------------------------------
+	
+
+	#Dictionary
+	Dict = {1: 'BAS', 2: 'ASD', 3: 'ABG'}
+	print(Dict)
+	print(Dict.items())#list of tuple pairs
+	print(len(Dict))#length
+	
+
+	#key is present or not
+	print('A' in Dict) 
+	print(1 in Dict)
+	
+
+	#Nested Dictionary
+	Dict = {1: 'BAS', 2: 'ASD', 3: {'A' : 'Welcome', 'B' : 'to', 'C' : 'Nested Dict'}}
+	print(Dict)
+	
+
+	#Adding and updating an element
+	Dict[0] = 'Nj'
+	Dict[2] = 'Hey'
+	Dict[3] = 5
+	print(Dict)
+	
+
+	#Accessing using key
+	Dict = {1: 'First', 'name': 'Name here', 3: '!First'}
+	print(Dict['name']) 
+	print(Dict[1]) 
+	
+
+	#Accessing using get()
+	print(Dict.get(3))
+	
+
+	#Deletion in DIctionaries
+	
+
+	Dict = { 5 : 'Welcome', 6 : 'To', 7 : 'Deletion', 
+	        'A' : {1 : 'One', 2 : 'Two', 3 : 'Three'}, 
+	        'B' : {1 : 'AOne', 2 : 'BTwo'}} 
+	
+
+	  
+	# Deleting a Key value 
+	del Dict[6] 
+	print(Dict) 
+	  
+	# Deleting a Key from Nested Dictionary 
+	del Dict['A'][2] 
+	print(Dict) 
+	  
+	# Deleting a Key using pop() 
+	Dict.pop(5) 
+	print(Dict) 
+	  
+	# Deleting Key-value pair using popitem() 
+	Dict.popitem() 
+	print(Dict) 
+	  
+	# Deleting entire Dictionary 
+	Dict.clear() 
+	print(Dict) 
+	
+
+	#update
+	Dict = {'A': 18,'C':12,'T':22,'R':25}	
+	Dict.update({"S":9})
+	print(Dict)
+
